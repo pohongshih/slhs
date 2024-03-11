@@ -1,3 +1,5 @@
-com\example\slhs\Product.class
+com\example\slhs\CorsConfig.class
 com\example\slhs\SlhsApplication.class
 com\example\slhs\StudentController.class
+com\example\slhs\UploadController.class
+com\example\slhs\Product.class

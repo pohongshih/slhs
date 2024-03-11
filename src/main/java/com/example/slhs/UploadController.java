@@ -39,7 +39,7 @@ public class UploadController {
             file.transferTo(dest);
 
             String uploadedFilePath = dest.getAbsolutePath();
-            return "上傳成功，文件路径为：" + uploadedFilePath;
+            return uploadedFilePath;
         } catch (IOException e) {
             e.printStackTrace();
             return "上傳失敗：" + e.getMessage();
