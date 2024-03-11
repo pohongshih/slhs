@@ -23,7 +23,7 @@ public class UploadController {
         try {
             // 指定上傳路徑
             // String uploadDir = "src/main/resources/static/";
-            String indexPath = request.getSession().getServletContext().getRealPath("/upload.html");
+            String indexPath = request.getSession().getServletContext().getRealPath("/img");
             File indexFile = new File(indexPath);
             String parentPath = indexFile.getParent(); // 取得 index.html 的父目錄
             String uploadDir =parentPath + File.separator + "img" + File.separator;
