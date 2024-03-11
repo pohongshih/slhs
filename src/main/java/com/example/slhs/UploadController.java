@@ -26,10 +26,10 @@ public class UploadController {
 
         try {
             // 指定上傳路徑
-            String indexPath = request.getSession().getServletContext().getRealPath("/img");
-            File indexFile = new File(indexPath);
-            String parentPath = indexFile.getParent(); // 取得 index.html 的父目錄
-            String uploadDir = parentPath + File.separator + "img" + File.separator;
+            String uploadDir = request.getSession().getServletContext().getRealPath("/img");
+//            File indexFile = new File(indexPath);
+//            String parentPath = indexFile.getParent(); // 取得 index.html 的父目錄
+//            String uploadDir = parentPath + File.separator + "img" + File.separator;
             File uploadPath = new File(uploadDir);
 
             if (!uploadPath.exists()) {
@@ -41,6 +41,7 @@ public class UploadController {
                 String fileName = file.getOriginalFilename();
                 File dest = new File(uploadDir + File.separator + fileName);
                 file.transferTo(dest);
+                System.out.println(dest);
                 uploadedFiles.add("img/" + fileName);
             }
             return uploadedFiles;
@@ -61,10 +62,10 @@ public class UploadController {
         try {
             // 指定上傳路徑,這裡設定的就是網域的部分，例如: 網址/img
             // String uploadDir = "src/main/resources/static/";
-            String indexPath = request.getSession().getServletContext().getRealPath("/img");
-            File indexFile = new File(indexPath);
-            String parentPath = indexFile.getParent(); // 取得 index.html 的父目錄
-            String uploadDir = parentPath + File.separator + "img" + File.separator;
+            String uploadDir = request.getSession().getServletContext().getRealPath("/img");
+//            File indexFile = new File(indexPath);
+//            String parentPath = indexFile.getParent(); // 取得 index.html 的父目錄
+//            String uploadDir = parentPath + File.separator + "img" + File.separator;
             File uploadPath = new File(uploadDir);
 
             if (!uploadPath.exists()) {
@@ -77,6 +78,7 @@ public class UploadController {
             file.transferTo(dest);
 
             // String uploadedFilePath = dest.getAbsolutePath();
+            System.out.println(uploadDir);
             return "img/" + fileName;
         } catch (IOException e) {
             e.printStackTrace();
